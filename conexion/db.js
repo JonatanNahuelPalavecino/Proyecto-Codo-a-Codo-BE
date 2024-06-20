@@ -1,11 +1,18 @@
-const sqlite3 = require('sqlite3').verbose();
-const { open } = require('sqlite');
+const mysql = require("mysql2")
 
-async function openDb() {
-    return open({
-        filename: '../database.db',
-        driver: sqlite3.Database
-    });
-}
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "basededatosdeprueba"
+})
 
-module.exports = { openDb };
+connection.connect((err) => {
+    if (err) {
+        return console.log("Error al conectarse a la base de datos: ", err)
+    }
+
+    console.log("Conectado a la base de datos.");
+})
+
+module.exports = connection
