@@ -1,14 +1,24 @@
-const express = require("express")
-const cors = require("cors")
-const rutaContacto = require("./router/contacto.router")
-const rutaTurno = require("./router/turno.router")
-const app = express()
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const userRouter = require('./router/user.router');
 
-const port = 3000
 
-app.listen(port)
-app.use(cors())
-app.use(express.json())
-app.use(rutaContacto)
-app.use(rutaTurno)
-console.log("Servidor prendido en puerto: ", port);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(cors());
+
+
+app.use('/api/user', userRouter);
+
+
+
+// Inicia el servidor
+const PORT = process.env.PORT || 3000;
+
+
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
