@@ -66,7 +66,9 @@ const signIn = (req, res) => {
             estado: "success",
             auth: true,
             mensaje: 'Inicio de Sesion correcto',
-            token: token
+            token: token,
+            userName: user.nombre,
+            userId: user.id
         });
     })
 
@@ -122,7 +124,8 @@ const signUp = (req, res) => {
                     estado: "success",
                     auth: true,
                     mensaje: 'Usuario registrado con éxito',
-                    token: token
+                    token: token,
+                    userName: nombre
                 });
 
             });

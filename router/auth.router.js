@@ -8,7 +8,11 @@ router.post("/register", signInController.signUp)
 router.post("/login", signInController.signIn)
 
 router.get("/protected", authMiddleware, (req, res) => {
-    res.json({userId: req.userId})
+    res.json({
+        estado: "success",
+        auth: true,
+        userId: req.userId
+    })
 })
 
 

@@ -32,7 +32,7 @@ module.exports = (req, res, next) => {
                 .send({
                     estado: "error",
                     auth:false,
-                    mensaje: "Error en la autenticacion del token"
+                    mensaje: "Sesión cerrada. Error en la autenticacion del token"
                 })
 
         req.userId = decoded.id
