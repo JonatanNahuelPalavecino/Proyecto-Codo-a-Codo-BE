@@ -7,7 +7,7 @@ const rutaTurno = require("./router/turno.router")
 const rutaAuth = require("./router/auth.router")
 const app = express()
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3306;
 
 app.listen(port)
 
